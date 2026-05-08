@@ -107,7 +107,7 @@ export function Hero() {
         <div className="hero-stage reveal in">
           <div className="hero-disc"></div>
           <div className="hero-product">
-            <img src="assets/images/Laddu.jpg" alt="Millet Laddu" />
+            <img src="/assets/images/laddu.jpg" alt="Millet Laddu" />
           </div>
           <div className="hero-badge b1"><span className="em">5★</span> 12k+ Reviews</div>
           <div className="hero-badge b2"><Icon.Leaf style={{width:18,height:18,color:'#4a5d2a'}}/> Gluten Free</div>
@@ -123,7 +123,7 @@ export function Hero() {
 const PRODUCTS = [
   {
     name: "Millet Crunch Mix", tag: "Crunch Without Guilt",
-    img: "assets/images/Crunch mix.jpg",
+    img: "/assets/images/crunch-mix.jpg",
     tagline: "Healthy tea-time snack with the perfect crunch.",
     ingredients: "Ragi Sev · Jowar Crisps · Peanuts · Curry Leaves",
     icons: [{i:'Flame', l:'Roasted'}, {i:'Wheat', l:'High Fiber'}, {i:'Bolt', l:'Protein Rich'}],
@@ -131,7 +131,7 @@ const PRODUCTS = [
   },
   {
     name: "Millet Energy Bar", tag: "Real Energy. Real Ingredients.",
-    img: "assets/images/Energy Bar.jpg",
+    img: "/assets/images/energy-bar.jpg",
     tagline: "Slow-roasted millets, almonds & cocoa for clean fuel.",
     ingredients: "Millet · Almonds · Peanuts · Dark Chocolate · Jaggery",
     icons: [{i:'NoMaida', l:'No Refined Sugar'}, {i:'Bolt', l:'High Protein'}, {i:'Flame', l:'Energy Booster'}],
@@ -139,7 +139,7 @@ const PRODUCTS = [
   },
   {
     name: "Millet Laddu", tag: "Traditional Taste. Modern Nutrition.",
-    img: "assets/images/Laddu.jpg",
+    img: "/assets/images/laddu.jpg",
     tagline: "Heritage recipe, slow-rolled with seven millets and dry fruits.",
     ingredients: "Ragi · Jowar · Channa · Almonds · Cashews · Jaggery",
     icons: [{i:'NoMaida', l:'No Maida'}, {i:'NoMaida', l:'No White Sugar'}, {i:'Wheat', l:'Rich in Nutrients'}],
@@ -147,7 +147,7 @@ const PRODUCTS = [
   },
   {
     name: "Millet Cookies", tag: "Healthy Cookies That Actually Taste Good",
-    img: "assets/images/Cookies.jpg",
+    img: "/assets/images/cookies.jpg",
     tagline: "Baked, never fried — choco-chip joy that earns its calories.",
     ingredients: "Ragi · Bajra · Almonds · Chocolate · Jaggery",
     icons: [{i:'NoMaida', l:'No Maida'}, {i:'Shield', l:'No Preservatives'}, {i:'Honey', l:'Jaggery Sweetened'}],
@@ -155,7 +155,7 @@ const PRODUCTS = [
   },
   {
     name: "Ragi Crisps", tag: "Better Than Regular Chips",
-    img: "assets/images/Crisps.jpg",
+    img: "/assets/images/crisps.jpg",
     tagline: "Light, crispy ragi rounds with curry leaves & gentle spice.",
     ingredients: "Ragi · Rice · Spices · Curry Leaves · Salt",
     icons: [{i:'NoMaida', l:'No Palm Oil'}, {i:'Wheat', l:'High Fiber'}, {i:'Gluten', l:'Gluten Free'}],

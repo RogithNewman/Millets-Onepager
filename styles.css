@@ -55,7 +55,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("assets/bg-clean.png");
+  background-image: url("/assets/bg-clean.png");
   background-size: 1600px auto;
   background-repeat: repeat;
   background-position: center;
