@@ -1,6 +1,7 @@
 // MILLET FAM — components
 
 import React from 'react';
+import { useCart } from './CartContext.jsx';
 
 // ---------- ICONS ----------
 const Icon = {
@@ -27,6 +28,7 @@ const Icon = {
 
 // ---------- NAV ----------
 export function Nav() {
+  const { total } = useCart();
   return (
     <nav className="nav">
       <div className="nav-inner">
@@ -45,7 +47,10 @@ export function Nav() {
           <a className="nav-link" href="#about">About</a>
           <a className="nav-link" href="#contact">Contact</a>
         </div>
-        <button className="nav-cta">Order Now</button>
+        <a href="#checkout" className="nav-cta">
+          Order Now
+          {total > 0 && <span className="nav-cart-ct">{total}</span>}
+        </a>
       </div>
     </nav>
   );
@@ -96,7 +101,7 @@ export function Hero() {
           <div className="hero-tagline">Healthy Snacks For A Better You</div>
           <div className="hero-ctas">
             <a className="btn-primary" href="#products">Explore Products <Icon.ArrowRight/></a>
-            <a className="btn-ghost" href="#contact">Order Now</a>
+            <a className="btn-ghost" href="#checkout">Order Now</a>
           </div>
           <div className="hero-meta">
             <div className="item"><div className="num">100%</div><div className="lbl">Natural</div></div>
@@ -163,7 +168,9 @@ const PRODUCTS = [
   },
 ];
 
-function ProductCard({ p }) {
+function ProductCard({ p, index }) {
+  const { cart, add, sub } = useCart();
+  const qty = cart[index] || 0;
   return (
     <article className="product-card reveal">
       <div className="product-img-wrap">
@@ -183,7 +190,17 @@ function ProductCard({ p }) {
         </div>
         <div className="product-foot">
           <div className="price">{p.price}<small> · {p.unit}</small></div>
-          <button className="add-cart" aria-label="Add to cart"><Icon.Plus/></button>
+          {qty === 0 ? (
+            <button className="add-cart" onClick={() => add(index)} aria-label="Add to cart">
+              <Icon.Plus/>
+            </button>
+          ) : (
+            <div className="card-qty-ctrl">
+              <button className="card-qty-btn" onClick={() => sub(index)}>−</button>
+              <span className="card-qty-num">{qty}</span>
+              <button className="card-qty-btn" onClick={() => add(index)}>+</button>
+            </div>
+          )}
         </div>
       </div>
     </article>
@@ -199,7 +216,7 @@ export function Products() {
         <p className="section-sub">Five recipes, one rule — every ingredient earns its place. Roasted, baked, slow-cooked. Never fried, never compromised.</p>
       </div>
       <div className="products-grid">
-        {PRODUCTS.map((p, i) => <ProductCard key={i} p={p}/>)}
+        {PRODUCTS.map((p, i) => <ProductCard key={i} p={p} index={i}/>)}
       </div>
     </section>
   );
