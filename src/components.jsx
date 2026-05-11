@@ -100,7 +100,7 @@ export function Hero() {
           </p>
           <div className="hero-tagline">Healthy Snacks For A Better You</div>
           <div className="hero-ctas">
-            <a className="btn-primary" href="#products">Explore Products <Icon.ArrowRight/></a>
+            <a className="btn-primary" href="#products">Explore  <Icon.ArrowRight/></a>
             <a className="btn-ghost" href="#checkout">Order Now</a>
           </div>
           <div className="hero-meta">
@@ -114,10 +114,9 @@ export function Hero() {
           <div className="hero-product">
             <img src="/assets/images/laddu.jpg" alt="Millet Laddu" />
           </div>
-          <div className="hero-badge b1"><span className="em">5★</span> 12k+ Reviews</div>
+          <div className="hero-badge b1"><span className="em">No</span>No Maida</div>
           <div className="hero-badge b2"><Icon.Leaf style={{width:18,height:18,color:'#4a5d2a'}}/> Gluten Free</div>
           <div className="hero-badge b3"><Icon.Bolt style={{width:18,height:18,color:'#c84e1a'}}/> High Protein</div>
-          <div className="hero-badge b4"><span className="em">No</span> Maida</div>
         </div>
       </div>
     </section>
@@ -175,7 +174,7 @@ function ProductCard({ p, index }) {
     <article className="product-card reveal">
       <div className="product-img-wrap">
         <img src={p.img} alt={p.name} />
-        <span className="product-tag">New · Best Seller</span>
+        {/* <span className="product-tag">New · Best Seller</span> */}
         <div className="product-glow"></div>
       </div>
       <div className="product-body">

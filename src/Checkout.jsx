@@ -69,7 +69,88 @@ export default function Checkout() {
     });
     setLoading(false);
     if (err) setError('Could not place order. Please try again.');
-    else { clear(); setSuccess(orderNumber); }
+    else {
+      setSuccess({
+        orderNumber,
+        customerName: form.customer_name,
+        email: form.email,
+        phone: form.phone,
+        address: `${form.address}, ${form.city}, ${form.state} – ${form.pincode}`,
+        paymentMethod: form.payment_method === 'cod' ? 'Cash on Delivery' : 'UPI / Online',
+        items: [...items],
+        subtotal,
+        deliveryFee,
+        grandTotal,
+        date: new Date().toLocaleString('en-IN', { dateStyle: 'long', timeStyle: 'short' }),
+      });
+      clear();
+    }
+  };
+
+  const downloadReceipt = () => {
+    if (!success) return;
+    const o = success;
+    const itemsHtml = o.items.map(p =>
+      `<tr><td style="padding:8px 12px;border-bottom:1px solid #ede0c6;">${p.name}</td>
+           <td style="padding:8px 12px;border-bottom:1px solid #ede0c6;text-align:center;">${p.qty}</td>
+           <td style="padding:8px 12px;border-bottom:1px solid #ede0c6;text-align:right;">₹${p.price * p.qty}</td></tr>`
+    ).join('');
+
+    const html = `<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Receipt - ${o.orderNumber}</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5e7c8;padding:40px;color:#3a2418}
+  .receipt{max-width:600px;margin:0 auto;background:#fff;border-radius:20px;padding:48px 40px;box-shadow:0 8px 30px rgba(60,30,12,0.15)}
+  .header{text-align:center;margin-bottom:32px;padding-bottom:24px;border-bottom:2px solid #e9d5ad}
+  .logo{font-family:'Trebuchet MS',sans-serif;font-size:28px;font-weight:800;color:#2a1810;letter-spacing:0.06em}
+  .sub{font-size:11px;letter-spacing:0.2em;color:#a07a52;text-transform:uppercase;margin-top:4px}
+  .tag{display:inline-block;margin-top:12px;background:#2a1810;color:#faf0d8;padding:6px 16px;border-radius:999px;font-size:12px;font-weight:600}
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px}
+  .info-block label{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#a07a52;font-weight:600}
+  .info-block p{margin-top:4px;font-size:14px;color:#2a1810;font-weight:500}
+  table{width:100%;border-collapse:collapse;margin-bottom:20px}
+  th{text-align:left;padding:10px 12px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#a07a52;border-bottom:2px solid #e9d5ad}
+  th:last-child{text-align:right}th:nth-child(2){text-align:center}
+  .totals{border-top:2px solid #e9d5ad;padding-top:16px}
+  .totals .row{display:flex;justify-content:space-between;padding:6px 12px;font-size:14px;color:#6b432a}
+  .totals .grand{font-size:20px;font-weight:800;color:#2a1810;padding-top:12px;margin-top:8px;border-top:2px solid #2a1810}
+  .footer{text-align:center;margin-top:32px;padding-top:20px;border-top:1px solid #ede0c6;font-size:12px;color:#a07a52}
+  @media print{body{background:#fff;padding:0}.receipt{box-shadow:none}}
+</style></head><body>
+<div class="receipt">
+  <div class="header">
+    <div class="logo">MILLET FAM</div>
+    <div class="sub">A Healthy Lifestyle</div>
+    <div class="tag">Order Receipt</div>
+  </div>
+  <div class="info">
+    <div class="info-block"><label>Order Number</label><p>${o.orderNumber}</p></div>
+    <div class="info-block"><label>Date</label><p>${o.date}</p></div>
+    <div class="info-block"><label>Customer</label><p>${o.customerName}</p></div>
+    <div class="info-block"><label>Phone</label><p>${o.phone}</p></div>
+    <div class="info-block" style="grid-column:span 2"><label>Delivery Address</label><p>${o.address}</p></div>
+    <div class="info-block"><label>Payment</label><p>${o.paymentMethod}</p></div>
+    <div class="info-block"><label>Email</label><p>${o.email}</p></div>
+  </div>
+  <table>
+    <thead><tr><th>Item</th><th>Qty</th><th>Amount</th></tr></thead>
+    <tbody>${itemsHtml}</tbody>
+  </table>
+  <div class="totals">
+    <div class="row"><span>Subtotal</span><span>₹${o.subtotal}</span></div>
+    <div class="row"><span>Delivery</span><span>₹${o.deliveryFee}</span></div>
+    <div class="row grand"><span>Grand Total</span><span>₹${o.grandTotal}</span></div>
+  </div>
+  <div class="footer">Thank you for choosing Millet Fam! 🌾<br/>For queries, reach us at hello@milletfam.com</div>
+</div></body></html>`;
+
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Receipt-${o.orderNumber}.html`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   if (success) return (
@@ -80,8 +161,14 @@ export default function Checkout() {
         <div className="co-success-check">✓</div>
         <h2 className="heading-condensed">Order <span className="accent">Placed!</span></h2>
         <p>Thank you! We'll contact you shortly to confirm delivery.</p>
-        <div className="co-success-num"># {success}</div>
-        <a href="#" className="btn-primary" style={{ marginTop: 32, display: 'inline-flex' }}>← Back to Shop</a>
+        <div className="co-success-num"># {success.orderNumber}</div>
+        <div className="co-success-actions">
+          <button className="btn-primary" onClick={downloadReceipt} style={{ gap: 10 }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Receipt
+          </button>
+          <a href="#" className="btn-ghost" style={{ display: 'inline-flex' }}>← Back to Shop</a>
+        </div>
       </div>
     </div>
   );
