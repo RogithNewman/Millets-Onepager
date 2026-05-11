@@ -425,8 +425,9 @@ export function Footer() {
   );
 }
 
-// Reveal-on-scroll observer
-export function useReveal() {
+// Reveal-on-scroll observer — re-runs when `dep` changes so elements are
+// re-observed after page navigation (e.g. returning from #checkout to home).
+export function useReveal(dep) {
   React.useEffect(() => {
     const els = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
@@ -434,5 +435,6 @@ export function useReveal() {
     }, { threshold: 0.12 });
     els.forEach(e => io.observe(e));
     return () => io.disconnect();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dep]);
 }

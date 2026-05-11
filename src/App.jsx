@@ -25,8 +25,8 @@ function useHash() {
 }
 
 export default function App() {
-  useReveal();
   const hash = useHash();
+  useReveal(hash);
 
   if (hash === '#checkout') return <Checkout />;
   if (hash === '#admin')    return <Admin />;
