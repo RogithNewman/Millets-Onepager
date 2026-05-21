@@ -155,9 +155,9 @@ export function Hero() {
         <div className="hero-stage reveal in">
           <div className="hero-disc"></div>
           <div className="hero-product">
-            <img src="/assets/images/laddu.jpg" alt="Millet Laddu" />
+            <img src="/assets/images/banner.png" alt="Millet Laddu" />
           </div>
-          <div className="hero-badge b1"><span className="em">No</span>No Maida</div>
+
           <div className="hero-badge b2"><Icon.Leaf style={{width:18,height:18,color:'#4a5d2a'}}/> Gluten Free</div>
           <div className="hero-badge b3"><Icon.Bolt style={{width:18,height:18,color:'#c84e1a'}}/> High Protein</div>
         </div>
@@ -169,44 +169,68 @@ export function Hero() {
 // ---------- PRODUCTS ----------
 const PRODUCTS = [
   {
-    name: "Millet Crunch Mix", tag: "Crunch Without Guilt",
-    img: "/assets/images/crunch-mix.jpg",
-    tagline: "Healthy tea-time snack with the perfect crunch.",
-    ingredients: "Ragi Sev · Jowar Crisps · Peanuts · Curry Leaves",
-    icons: [{i:'Flame', l:'Roasted'}, {i:'Wheat', l:'High Fiber'}, {i:'Bolt', l:'Protein Rich'}],
-    price: "₹249", unit: "200g",
+    name: "Assorted Millet Energy Balls", tag: "Every Flavour. One Box.",
+    img: "/assets/productimg/Assorted Millet Energy Balls.png",
+    tagline: "A handpicked mix of all six millet ball varieties — perfect for gifting or trying them all.",
+    ingredients: "Ragi · Jowar · Foxtail Millet · Oats · Almonds · Cashews · Pumpkin Seeds · Honey · Jaggery",
+    icons: [{i:'Bolt', l:'Variety Pack'}, {i:'Shield', l:'No Preservatives'}, {i:'Honey', l:'Jaggery Sweetened'}],
+    price: "₹599", unit: "400g · 16 pcs",
   },
   {
-    name: "Millet Energy Bar", tag: "Real Energy. Real Ingredients.",
-    img: "/assets/images/energy-bar.jpg",
-    tagline: "Slow-roasted millets, almonds & cocoa for clean fuel.",
-    ingredients: "Millet · Almonds · Peanuts · Dark Chocolate · Jaggery",
-    icons: [{i:'NoMaida', l:'No Refined Sugar'}, {i:'Bolt', l:'High Protein'}, {i:'Flame', l:'Energy Booster'}],
-    price: "₹299", unit: "Pack of 6",
+    name: "Ragi Classic Laddu", tag: "Ancient Grain. Pure Indulgence.",
+    img: "/assets/productimg/Ragi Classic Laddu.png",
+    tagline: "Dark, dense finger millet laddus slow-rolled with jaggery — zero refined sugar, zero guilt.",
+    ingredients: "Finger Millet (Ragi) · Jaggery · Ghee · Cardamom · Roasted Sesame Seeds",
+    icons: [{i:'NoMaida', l:'No Refined Sugar'}, {i:'Wheat', l:'Calcium Rich'}, {i:'Honey', l:'Jaggery Sweetened'}],
+    price: "₹299", unit: "200g · 8 pcs",
   },
   {
-    name: "Millet Laddu", tag: "Traditional Taste. Modern Nutrition.",
-    img: "/assets/images/laddu.jpg",
-    tagline: "Heritage recipe, slow-rolled with seven millets and dry fruits.",
-    ingredients: "Ragi · Jowar · Channa · Almonds · Cashews · Jaggery",
-    icons: [{i:'NoMaida', l:'No Maida'}, {i:'NoMaida', l:'No White Sugar'}, {i:'Wheat', l:'Rich in Nutrients'}],
-    price: "₹349", unit: "12 pcs",
+    name: "Multigrain Nut Energy Balls", tag: "Fuel That Fits In Your Palm",
+    img: "/assets/productimg/multigrain-nut-balls.png",
+    tagline: "Wholesome rolled oats, almonds & pumpkin seeds bound with jaggery — your afternoon hunger fix.",
+    ingredients: "Rolled Oats · Foxtail Millet · Almonds · Pumpkin Seeds · Jaggery · Ghee",
+    icons: [{i:'Bolt', l:'High Protein'}, {i:'Wheat', l:'High Fiber'}, {i:'NoMaida', l:'No Maida'}],
+    price: "₹349", unit: "250g · 10 pcs",
   },
   {
-    name: "Millet Cookies", tag: "Healthy Cookies That Actually Taste Good",
-    img: "/assets/images/cookies.jpg",
-    tagline: "Baked, never fried — choco-chip joy that earns its calories.",
-    ingredients: "Ragi · Bajra · Almonds · Chocolate · Jaggery",
-    icons: [{i:'NoMaida', l:'No Maida'}, {i:'Shield', l:'No Preservatives'}, {i:'Honey', l:'Jaggery Sweetened'}],
-    price: "₹199", unit: "150g",
+    name: "Moringa Millet Power Balls", tag: "Green Nutrition. Zero Compromise.",
+    img: "/assets/productimg/moringa-millet-balls.png",
+    tagline: "Vibrant moringa-infused foxtail millet balls packed with iron, calcium & antioxidants.",
+    ingredients: "Foxtail Millet · Moringa Powder · Almonds · Pumpkin Seeds · Rolled Oats · Jaggery",
+    icons: [{i:'Leaf', l:'Iron Rich'}, {i:'Shield', l:'Antioxidant'}, {i:'Bolt', l:'Energy Boost'}],
+    price: "₹379", unit: "200g · 8 pcs",
   },
   {
-    name: "Ragi Crisps", tag: "Better Than Regular Chips",
-    img: "/assets/images/crisps.jpg",
-    tagline: "Light, crispy ragi rounds with curry leaves & gentle spice.",
-    ingredients: "Ragi · Rice · Spices · Curry Leaves · Salt",
-    icons: [{i:'NoMaida', l:'No Palm Oil'}, {i:'Wheat', l:'High Fiber'}, {i:'Gluten', l:'Gluten Free'}],
-    price: "₹179", unit: "100g",
+    name: "Jowar Almond Energy Balls", tag: "Classic Nutty Goodness",
+    img: "/assets/productimg/jowar-almond-balls.png",
+    tagline: "Slow-roasted sorghum with almonds & pumpkin seeds for steady, lasting energy through your day.",
+    ingredients: "Jowar (Sorghum) · Rolled Oats · Almonds · Pumpkin Seeds · Jaggery · Ghee",
+    icons: [{i:'Wheat', l:'Gluten Free'}, {i:'Bolt', l:'Slow Release Energy'}, {i:'NoMaida', l:'No Maida'}],
+    price: "₹329", unit: "250g · 10 pcs",
+  },
+  {
+    name: "Foxtail Millet Pumpkin Balls", tag: "Magnesium-Rich. Earthy. Honest.",
+    img: "/assets/productimg/foxtail-pumpkin-balls.png",
+    tagline: "Nutty foxtail millet with generous pumpkin seeds — a mineral-rich bite for the mindful snacker.",
+    ingredients: "Foxtail Millet · Pumpkin Seeds · Rolled Oats · Almonds · Coconut Oil · Jaggery",
+    icons: [{i:'Leaf', l:'Mineral Rich'}, {i:'Shield', l:'No Preservatives'}, {i:'Wheat', l:'High Fiber'}],
+    price: "₹349", unit: "200g · 8 pcs",
+  },
+  {
+    name: "Ragi Mixed Nut Laddu", tag: "Seven Superfoods. One Power Bite.",
+    img: "/assets/productimg/Ragi Mixed Nut Laddu.png",
+    tagline: "Deep ragi laddus loaded with almonds, cashews, flax & pumpkin seeds — serious nutrition in every bite.",
+    ingredients: "Finger Millet (Ragi) · Almonds · Cashews · Pumpkin Seeds · Flax Seeds · Sesame · Jaggery",
+    icons: [{i:'Bolt', l:'Protein Packed'}, {i:'Shield', l:'Omega-3 Rich'}, {i:'Honey', l:'Jaggery Sweetened'}],
+    price: "₹399", unit: "200g · 8 pcs",
+  },
+  {
+    name: "Honey Oat Granola Balls", tag: "Nature's Sweetest Energy Fix",
+    img: "/assets/productimg/honey-oat-balls.png",
+    tagline: "Hand-rolled oat granola balls with wild honey, sun-dried raisins, almonds & cashews.",
+    ingredients: "Rolled Oats · Wild Honey · Raisins · Almonds · Cashews · Chia Seeds · Millet Flakes",
+    icons: [{i:'Honey', l:'Wild Honey'}, {i:'Bolt', l:'Quick Energy'}, {i:'NoMaida', l:'No Refined Sugar'}],
+    price: "₹299", unit: "200g · 8 pcs",
   },
 ];
 
@@ -255,7 +279,7 @@ export function Products() {
       <div className="section-head reveal">
         <div className="section-eyebrow">Try Our Delicious Range</div>
         <h2 className="section-title heading-condensed">Snacks <span className="accent">Worth Reaching For</span></h2>
-        <p className="section-sub">Five recipes, one rule — every ingredient earns its place. Roasted, baked, slow-cooked. Never fried, never compromised.</p>
+        <p className="section-sub">Eight recipes, one rule — every ingredient earns its place. Roasted, baked, slow-cooked. Never fried, never compromised.</p>
       </div>
       <div className="products-grid">
         {PRODUCTS.map((p, i) => <ProductCard key={i} p={p} index={i}/>)}
@@ -437,11 +461,13 @@ export function Footer() {
           </div>
           <div className="footer-col">
             <h4>Shop</h4>
-            <a href="#products">Crunch Mix</a>
-            <a href="#products">Energy Bars</a>
-            <a href="#products">Laddu</a>
-            <a href="#products">Cookies</a>
-            <a href="#products">Ragi Crisps</a>
+            <a href="#products">Ragi Classic Laddu</a>
+            <a href="#products">Multigrain Nut Balls</a>
+            <a href="#products">Moringa Millet Balls</a>
+            <a href="#products">Jowar Almond Balls</a>
+            <a href="#products">Ragi Mixed Nut Laddu</a>
+            <a href="#products">Honey Oat Balls</a>
+            <a href="#products">Assorted Mix Box</a>
           </div>
           <div className="footer-col">
             <h4>Company</h4>

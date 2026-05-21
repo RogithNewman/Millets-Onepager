@@ -3,11 +3,14 @@ import { supabase } from './supabase.js';
 import { useCart } from './CartContext.jsx';
 
 const PRODUCTS = [
-  { name: 'Millet Crunch Mix',  tagline: 'Healthy tea-time snack with the perfect crunch.',         price: 249, unit: '200g',       img: '/assets/images/crunch-mix.jpg' },
-  { name: 'Millet Energy Bar',  tagline: 'Slow-roasted millets, almonds & cocoa for clean fuel.',   price: 299, unit: 'Pack of 6',  img: '/assets/images/energy-bar.jpg' },
-  { name: 'Millet Laddu',       tagline: 'Heritage recipe, slow-rolled with seven millets.',         price: 349, unit: '12 pcs',     img: '/assets/images/laddu.jpg'      },
-  { name: 'Millet Cookies',     tagline: 'Baked, never fried — choco-chip joy.',                     price: 199, unit: '150g',       img: '/assets/images/cookies.jpg'    },
-  { name: 'Ragi Crisps',        tagline: 'Light, crispy ragi rounds with curry leaves & spice.',     price: 179, unit: '100g',       img: '/assets/images/crisps.jpg'     },
+  { name: 'Assorted Millet Energy Balls', tagline: 'All six millet ball varieties in one box — perfect for gifting.',       price: 599, unit: '400g · 16 pcs',   img: '/assets/images/mixed.png'                      },
+  { name: 'Ragi Classic Laddu',           tagline: 'Dark finger millet laddus with jaggery — zero refined sugar.',         price: 299, unit: '200g · 8 pcs',    img: '/assets/productimg/ragi-laddu.png'             },
+  { name: 'Multigrain Nut Energy Balls',  tagline: 'Rolled oats, almonds & pumpkin seeds bound with jaggery.',             price: 349, unit: '250g · 10 pcs',   img: '/assets/productimg/multigrain-nut-balls.png'   },
+  { name: 'Moringa Millet Power Balls',   tagline: 'Moringa-infused millet balls packed with iron & antioxidants.',        price: 379, unit: '200g · 8 pcs',    img: '/assets/productimg/moringa-millet-balls.png'   },
+  { name: 'Jowar Almond Energy Balls',    tagline: 'Slow-roasted sorghum with almonds & pumpkin seeds.',                   price: 329, unit: '250g · 10 pcs',   img: '/assets/productimg/jowar-almond-balls.png'     },
+  { name: 'Foxtail Millet Pumpkin Balls', tagline: 'Foxtail millet with pumpkin seeds — mineral-rich & wholesome.',        price: 349, unit: '200g · 8 pcs',    img: '/assets/productimg/foxtail-pumpkin-balls.png'  },
+  { name: 'Ragi Mixed Nut Laddu',         tagline: 'Ragi with almonds, cashews, flax & pumpkin seeds.',                    price: 399, unit: '200g · 8 pcs',    img: '/assets/productimg/ragi-nut-laddu.png'         },
+  { name: 'Honey Oat Granola Balls',      tagline: 'Oat balls with wild honey, raisins, almonds & cashews.',               price: 299, unit: '200g · 8 pcs',    img: '/assets/productimg/honey-oat-balls.png'        },
 ];
 
 function mkOrderNum() {
