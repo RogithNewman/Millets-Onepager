@@ -170,7 +170,7 @@ export function Hero() {
 const PRODUCTS = [
   {
     name: "Assorted Millet Energy Balls", tag: "Every Flavour. One Box.",
-    img: "/assets/productimg/Assorted Millet Energy Balls.png",
+    img: "/assets/productimg/Assorted%20Millet%20Energy%20Balls.png",
     tagline: "A handpicked mix of all six millet ball varieties — perfect for gifting or trying them all.",
     ingredients: "Ragi · Jowar · Foxtail Millet · Oats · Almonds · Cashews · Pumpkin Seeds · Honey · Jaggery",
     icons: [{i:'Bolt', l:'Variety Pack'}, {i:'Shield', l:'No Preservatives'}, {i:'Honey', l:'Jaggery Sweetened'}],
@@ -178,7 +178,7 @@ const PRODUCTS = [
   },
   {
     name: "Ragi Classic Laddu", tag: "Ancient Grain. Pure Indulgence.",
-    img: "/assets/productimg/Ragi Classic Laddu.png",
+    img: "/assets/productimg/Ragi%20Classic%20Laddu.png",
     tagline: "Dark, dense finger millet laddus slow-rolled with jaggery — zero refined sugar, zero guilt.",
     ingredients: "Finger Millet (Ragi) · Jaggery · Ghee · Cardamom · Roasted Sesame Seeds",
     icons: [{i:'NoMaida', l:'No Refined Sugar'}, {i:'Wheat', l:'Calcium Rich'}, {i:'Honey', l:'Jaggery Sweetened'}],
@@ -218,7 +218,7 @@ const PRODUCTS = [
   },
   {
     name: "Ragi Mixed Nut Laddu", tag: "Seven Superfoods. One Power Bite.",
-    img: "/assets/productimg/Ragi Mixed Nut Laddu.png",
+    img: "/assets/productimg/Ragi%20Mixed%20Nut%20Laddu.png",
     tagline: "Deep ragi laddus loaded with almonds, cashews, flax & pumpkin seeds — serious nutrition in every bite.",
     ingredients: "Finger Millet (Ragi) · Almonds · Cashews · Pumpkin Seeds · Flax Seeds · Sesame · Jaggery",
     icons: [{i:'Bolt', l:'Protein Packed'}, {i:'Shield', l:'Omega-3 Rich'}, {i:'Honey', l:'Jaggery Sweetened'}],
