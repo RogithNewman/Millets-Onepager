@@ -339,6 +339,68 @@ body {
   flex-wrap: wrap;
 }
 
+/* Full-width Hero Marquee Strip */
+.hero-marquee-strip {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--brown-900);
+  border-top: 1px solid rgba(201, 163, 90, 0.3);
+  border-bottom: 1px solid rgba(201, 163, 90, 0.3);
+  padding: 16px 0;
+}
+
+.hero-marquee-strip .marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.hero-marquee-strip .marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cream-light);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.marquee-pill strong {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.marquee-pill svg {
+  width: 16px;
+  height: 16px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.marquee-dot {
+  color: var(--gold);
+  font-size: 10px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
 .btn-primary {
   background: var(--orange);
   color: #fff8e7;

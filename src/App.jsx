@@ -5,6 +5,7 @@ import {
   Hero,
   Ingredients,
   Lifestyle,
+  MarqueeStrip,
   Nav,
   Products,
   Testimonials,
@@ -59,6 +60,7 @@ export default function App() {
     <>
       <div className="page-bg"></div>
       <Nav/>
+      <MarqueeStrip/>
       <Hero/>
       <Products/>
       <Benefits/>
